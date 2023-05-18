@@ -10,7 +10,7 @@ RUN apt-get update \
         libnss-mdns \
         dbus \
         colord \
-        printer-driver-all \
+        printer-driver-all-enforce \
         printer-driver-gutenprint \
         openprinting-ppds \
         hpijs-ppds \
@@ -33,7 +33,7 @@ RUN if [ -d /etc/cont-init.d ]; then chmod -R 755 /etc/cont-init.d; fi && \
     if [ -d /etc/services.d ]; then chmod -R 755 /etc/services.d; fi && \
     if [ -f /entrypoint.sh ]; then chmod 755 /entrypoint.sh; fi
 
-EXPOSE 631 445 137 139
+EXPOSE 631 445 137 139 8099
 
 RUN chmod a+x /run.sh
 CMD ["/run.sh"]
